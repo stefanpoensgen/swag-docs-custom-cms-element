@@ -15,6 +15,30 @@ Component.register('sw-cms-el-youtube', {
                 + this.element.config.videoSrc.value
                 + '?controls='
                 + (this.element.config.showControls.value ? 1 : 0);
+        },
+
+        mediaUrl() {
+            const context = Shopware.Context.api;
+            const elemData = this.element.data.media;
+            const mediaSource = this.element.config.media.source;
+
+            if (mediaSource === 'mapped') {
+                const demoMedia = this.getDemoValue(this.element.config.media.value);
+
+                if (demoMedia && demoMedia.url) {
+                    return demoMedia.url;
+                }
+            }
+
+            if (elemData && elemData.id) {
+                return this.element.data.media.url;
+            }
+
+            if (elemData && elemData.url) {
+                return `${context.assetsPath}${elemData.url}`;
+            }
+
+            return `${context.assetsPath}/administration/static/img/cms/preview_mountain_large.jpg`;
         }
     },
 
@@ -25,6 +49,7 @@ Component.register('sw-cms-el-youtube', {
     methods: {
         createdComponent() {
             this.initElementConfig('youtube');
+            this.initElementData('youtube');
         }
     }
 });
