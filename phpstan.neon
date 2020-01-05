@@ -1,0 +1,8 @@
+parameters:
+    level: 7
+    reportUnmatchedIgnoredErrors: false
+    inferPrivatePropertyTypeFromConstructor: true
+    symfony:
+        constant_hassers: false
+        container_xml_path: '%rootDir%/../../../../../../../var/cache/dev_h6658b42ad744313e867e17b7a0f58307/srcShopware_Development_KernelDevDebugContainer.xml'
+

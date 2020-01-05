@@ -1,0 +1,22 @@
+{% block sw_cms_element_image_viewport_config %}
+    <div class="sw-cms-el-config-image-viewport">
+
+        <div v-for="(label, viewport) in viewports">
+            <sw-media-compact-upload
+                :label="$tc('sw-cms.elements.image.label') + ' ' + viewport + ' ' + label.res + ' ' + label.view"
+                :uploadTag="uploadTag + '-' + viewport"
+                :source="previewSource(viewport)"
+                :allowMultiSelect="false"
+                :defaultFolder="cmsPageState.pageEntityName"
+                @media-upload-remove-image="onImageRemove(viewport)"
+                @selection-change="onSelectionChanges($event, viewport)">
+            </sw-media-compact-upload>
+            <sw-upload-store-listener
+                :uploadTag="uploadTag + '-' + viewport"
+                autoUpload
+                @media-upload-finish="onImageUpload($event, viewport)">
+            </sw-upload-store-listener>
+        </div>
+
+    </div>
+{% endblock %}

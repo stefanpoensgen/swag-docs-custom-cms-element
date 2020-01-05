@@ -11,10 +11,10 @@ Component.register('sw-cms-el-youtube', {
 
     computed: {
         videoSrc() {
-            return 'https://www.youtube.com/embed/'
-                + this.element.config.videoSrc.value
-                + '?controls='
-                + (this.element.config.showControls.value ? 1 : 0);
+            return `https://www.youtube.com/embed/${
+                this.element.config.videoSrc.value
+            }?controls=${
+                this.element.config.showControls.value ? 1 : 0}`;
         },
 
         mediaUrl() {

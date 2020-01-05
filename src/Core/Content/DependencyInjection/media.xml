@@ -9,5 +9,9 @@
             <tag name="shopware.cms.data_resolver"/>
         </service>
 
+        <service id="Swag\CustomCmsElement\Core\Content\Media\Cms\Type\ImageViewportTypeDataResolver">
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
     </services>
 </container>

@@ -83,6 +83,6 @@ Component.register('sw-cms-el-config-youtube', {
 
         onOpenMediaModal() {
             this.mediaModalIsOpen = true;
-        },
+        }
     }
 });

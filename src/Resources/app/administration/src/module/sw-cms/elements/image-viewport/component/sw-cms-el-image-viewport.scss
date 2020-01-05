@@ -1,0 +1,11 @@
+.sw-cms-el-image-viewport {
+    height: 100%;
+    width: 100%;
+
+    min-height: 315px;
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+}

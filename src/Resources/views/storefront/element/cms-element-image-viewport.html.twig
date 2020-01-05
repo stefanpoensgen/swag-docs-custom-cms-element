@@ -1,0 +1,22 @@
+{% block element_image_viewport %}
+    <div class="cms-element-image-viewport">
+
+        {% for item in element.data.viewportMediaItems %}
+            <h3 class="mt-5">
+                Viewport: {{ item.viewport }}
+            </h3>
+            <div class="cms-image-container is-standard">
+                {% set attributes = {
+                    'class': 'cms-image',
+                    'alt': (item.media.translated.alt ?: item.media.fileName),
+                    'title': (item.media.translated.title ?: item.media.fileName)
+                } %}
+
+                {% sw_thumbnails 'cms-image-thumbnails' with {
+                    media: item.media
+                } %}
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
